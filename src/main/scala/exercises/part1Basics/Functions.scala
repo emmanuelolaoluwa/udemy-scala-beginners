@@ -8,10 +8,28 @@ object Functions extends App {
 
   println(aGreetingFunction("Emmanuel", 27))
 
-  def aRecursiveFunction(number: Int): Int =
-    var n = 1
-    if (n != number) n * aRecursiveFunction(n+1)
-    else n + aRecursiveFunction(n+1)
+  def aFactorialFunction(n: Int): Int =
 
-  println(aRecursiveFunction(3))
+    if (n <= 0) 1
+    else n * aFactorialFunction(n-1)
+
+
+  println(aFactorialFunction(5))
+
+  def fibonacci(n: Int): Int =
+    if (n <= 2) 1
+    else fibonacci(n - 1) + fibonacci(n-2)
+
+  println(fibonacci(8))
+
+  def isPrime(n:Int): Boolean = {
+
+    def isPrimeUntil(t: Int): Boolean =
+      if (t<=1) true
+      else n % t != 0 && isPrimeUntil(t-1)
+
+    isPrimeUntil(n / 2)
+  }
+
+  println(isPrime(37))
 }
